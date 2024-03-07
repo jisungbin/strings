@@ -2,11 +2,18 @@
   "name": "strings",
   "version": "1.0.0",
   "description": "Manage all your strings in Figma without any stress ✨",
+  "homepage": "https://github.com/jisungbin/strings#readme",
   "keywords": ["string management"],
   "author": "Ji Sungbin <ji@sungb.in>",
   "license": "MIT",
-  "repository": "github:jisungbin/strings",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jisungbin/strings.git"
+  },
   "main": "strings.js",
+  "bugs": {
+    "url": "https://github.com/jisungbin/strings/issues"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "npm run build -- --watch"

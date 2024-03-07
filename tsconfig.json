@@ -3,10 +3,10 @@
     "target": "es6",
     "lib": ["es2020"],
     "strict": true,
+    "noImplicitOverride": true,
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@figma"
-    ],
-    "noImplicitOverride": true
+    ]
   }
 }
