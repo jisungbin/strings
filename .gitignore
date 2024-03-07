@@ -1,0 +1,16 @@
+**/.idea/*
+!/.idea/icon.png
+!/.idea/vcs.xml
+!/.idea/copyright
+!/.idea/codeStyleSettings.xml
+!/.idea/codeStyles
+!/.idea/dictionaries
+!/.idea/inspectionProfiles
+*.log
+*.log.*
+node_modules
+out/
+dist/
+strings.js
+# Project exclude paths
+/src/StringNode.js

@@ -1,0 +1,19 @@
+{
+  "name": "strings",
+  "version": "1.0.0",
+  "description": "Manage all your strings in Figma without any stress ✨",
+  "keywords": ["string management"],
+  "author": "Ji Sungbin <ji@sungb.in>",
+  "license": "MIT",
+  "repository": "github:jisungbin/strings",
+  "main": "strings.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "npm run build -- --watch"
+  },
+  "devDependencies": {
+    "@figma/eslint-plugin-figma-plugins": "^0.14.0",
+    "@figma/plugin-typings": "^1.88.0",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "strings",
+  "id": "1347185046443505778",
+  "api": "1.0.0",
+  "main": "strings.js",
+  "capabilities": ["textreview"],
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page"
+}
