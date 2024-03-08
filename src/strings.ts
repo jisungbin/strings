@@ -1,4 +1,6 @@
-import {StringNode} from 'src/StringNode'
+import type {StringNode} from './StringNode.ts'
+
+figma.showUI(__html__, {width: 400, height: 600})
 
 const textNodes = figma.currentPage.findAll((node) => node.type === 'TEXT') as TextNode[]
 const usedName = new Map<String, String>()
@@ -40,13 +42,7 @@ if (figma.command === 'textreview') {
 } else if (!figma.textreview?.isEnabled) {
   figma.textreview
     ?.requestToBeEnabledAsync()
-    .then(() => {
-      console.log('I am now the default!')
-    })
-    .catch(() => {
-      console.log('User declined to enable this plugin.')
-    })
-    .finally(() => {
-      figma.closePlugin()
-    })
+    .then(() => console.log('I am now the default!'))
+    .catch(() => console.log('User declined to enable this plugin.'))
+    .finally(() => figma.closePlugin())
 }

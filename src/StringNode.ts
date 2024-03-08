@@ -1,7 +1,7 @@
-export interface StringNode {
+export type StringNode = {
   id: string
   duplicateId: boolean
-  readonly value: string
+  value: string
   readonly node: TextNode
   readonly toString: () => string
 }
