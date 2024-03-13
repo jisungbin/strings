@@ -23,18 +23,21 @@ textNodes.forEach((text) => {
   stringNodes.push(stringNode)
 })
 
+console.log(stringNodes.map((node) => node.toString()).join('\n'))
+
 if (figma.command === 'textreview') {
   figma.on('textreview', ({text}) => {
     if (!text) return []
 
-    const yeetRegex = /yeet/gi
-    const yeetMatches = Array.from(text.matchAll(yeetRegex))
-    return yeetMatches.map((match): TextReviewRange => {
-      match.index ??= 1
+    const rule = /안되/gi
+    const founds = Array.from(text.matchAll(rule))
+
+    return founds.map((match): TextReviewRange => {
+      match.index ??= 0
       return {
         start: match.index,
         end: match.index + match[0].length,
-        suggestions: ['throw'],
+        suggestions: ['안돼'],
         color: 'BLUE',
       }
     })
@@ -46,3 +49,5 @@ if (figma.command === 'textreview') {
     .catch(() => console.log('User declined to enable this plugin.'))
     .finally(() => figma.closePlugin())
 }
+
+figma.closePlugin()
