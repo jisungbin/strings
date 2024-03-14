@@ -2,7 +2,7 @@ import type {StringNode} from './StringNode.ts'
 
 figma.showUI(__html__, {width: 400, height: 600})
 
-const textNodes = figma.currentPage.findAll((node) => node.type === 'TEXT') as TextNode[]
+const textNodes = figma.currentPage.findAll(node => node.type === 'TEXT') as TextNode[]
 const usedName = new Map<String, String>()
 const stringNodes = new Array<StringNode>()
 
@@ -23,9 +23,9 @@ textNodes.forEach((text) => {
   stringNodes.push(stringNode)
 })
 
-console.log(stringNodes.map((node) => node.toString()).join('\n'))
+console.log(stringNodes.map(node => node.toString()).join('\n'))
 
-if (figma.command === 'textreview') {
+/*if (figma.command === 'textreview') {
   figma.on('textreview', ({text}) => {
     if (!text) return []
 
@@ -50,4 +50,4 @@ if (figma.command === 'textreview') {
     .finally(() => figma.closePlugin())
 }
 
-figma.closePlugin()
+figma.closePlugin()*/
