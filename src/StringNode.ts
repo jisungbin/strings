@@ -6,5 +6,4 @@ export type StringNode = {
   value: string
   wrongValueRange?: IntRange
   readonly node: TextNode
-  readonly toString: () => string
 }

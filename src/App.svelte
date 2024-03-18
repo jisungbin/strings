@@ -1,12 +1,9 @@
-<script lang="ts">
-  import type {StringNode} from './StringNode.ts'
-
-  let stringNodes: ReadonlyArray<StringNode>
+<!--suppress JSUnresolvedReference -->
+<script>
   $: stringNodes = []
 
-  onmessage = (event: MessageEvent<StringNode[]>) => {
-    stringNodes = event.data
-    console.log(`Received ${stringNodes.length} string nodes: ${stringNodes.map((node) => node.id).join(', ')}`)
+  onmessage = (event) => {
+    stringNodes = event.data.pluginMessage
   }
 </script>
 
@@ -17,7 +14,6 @@
         gap: 4px;
     }
 
-    .title,
     .content {
         text-align: left;
     }
@@ -29,16 +25,15 @@
 </style>
 
 <div class="container">
-  <div class="title">strings!</div>
   {#each stringNodes as node (node.node.id)}
-    {#each node.value.split('') as char, index}
-      <div class="content">
+    <div class="content">
+      {#each node.value.split('') as char, index}
         {#if node.wrongValueRange.start <= index && index <= node.wrongValueRange.endInclusive}
           <span class="underline">{char}</span>
         {:else}
           {char}
         {/if}
-      </div>
-    {/each}
+      {/each}
+    </div>
   {/each}
 </div>

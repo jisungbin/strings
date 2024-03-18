@@ -23,12 +23,11 @@ textNodes.forEach((text) => {
       endInclusive = value.length - 1
     },
     node: text,
-    toString: () => `StringNode(id=${id}, isDuplicatedId=${isDuplicatedId}, value=${value}, node=${text.id})`,
   }
   stringNodes.push(stringNode)
 })
 
-console.log(stringNodes.map((node) => node.toString()).join('\n'))
+console.log(stringNodes.map((node) => node.value).join('\n'))
 figma.ui.postMessage(stringNodes)
 
 /*if (figma.command === 'textreview') {
