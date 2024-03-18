@@ -1,4 +1,5 @@
-import type {StringNode} from './StringNode.ts'
+import type {StringNode} from './StringNode'
+import type {IntRange} from './IntRange'
 
 figma.showUI(__html__, {width: 400, height: 600})
 
@@ -9,21 +10,26 @@ const stringNodes = new Array<StringNode>()
 textNodes.forEach((text) => {
   const id = text.name
   const value = text.characters
-  const duplicateId = (usedName.get(id) ?? value) !== value
+  const isDuplicatedId = (usedName.get(id) ?? value) !== value
 
   usedName.set(id, value)
 
   const stringNode: StringNode = {
     id: id,
-    duplicateId: duplicateId,
+    isDuplicatedId: isDuplicatedId,
     value: value,
+    wrongValueRange: new class implements IntRange {
+      start = 0
+      endInclusive = value.length - 1
+    },
     node: text,
-    toString: () => `StringNode(id=${id}, duplicateId=${duplicateId}, value=${value}, node=${text.id})`,
+    toString: () => `StringNode(id=${id}, isDuplicatedId=${isDuplicatedId}, value=${value}, node=${text.id})`,
   }
   stringNodes.push(stringNode)
 })
 
-console.log(stringNodes.map(node => node.toString()).join('\n'))
+console.log(stringNodes.map((node) => node.toString()).join('\n'))
+figma.ui.postMessage(stringNodes)
 
 /*if (figma.command === 'textreview') {
   figma.on('textreview', ({text}) => {

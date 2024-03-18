@@ -1,7 +1,10 @@
+import type {IntRange} from "./IntRange";
+
 export type StringNode = {
   id: string
-  duplicateId: boolean
+  isDuplicatedId: boolean
   value: string
+  wrongValueRange?: IntRange
   readonly node: TextNode
   readonly toString: () => string
 }

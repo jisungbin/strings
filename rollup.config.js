@@ -10,9 +10,10 @@ import cssnano from "cssnano"
 
 const production = !process.env.ROLLUP_WATCH
 
+// noinspection JSValidateTypes
 /** @type {import('rollup').RollupOptions} */
 const uiConfig = {
-  input: 'src/app.ts',
+  input: 'src/main.ts',
   output: {
     name: 'ui',
     format: 'iife',
@@ -27,6 +28,8 @@ const uiConfig = {
     }),
     resolve({
       browser: true,
+      exportConditions: ['svelte'],
+      extensions: ['.svelte'],
       dedupe: (importee) => importee === 'svelte' || importee.startsWith('svelte/'),
     }),
     commonjs(),
@@ -63,13 +66,17 @@ const uiConfig = {
 const codeConfig = {
   input: 'src/strings.ts',
   output: {
-    format: 'es',
+    format: 'cjs',
     file: 'dist/strings.js',
   },
   plugins: [
     typescript(),
     commonjs(),
-    resolve({browser: true}),
+    resolve({
+      browser: true,
+      exportConditions: ['svelte'],
+      extensions: ['.svelte'],
+    }),
     production && terser(),
   ],
 }
