@@ -1,0 +1,10 @@
+{
+  "name": "strings",
+  "id": "1347185046443505778",
+  "api": "1.0.0",
+  "main": "dist/strings.js",
+  "ui": "dist/ui.html",
+  "documentAccess": "dynamic-page",
+  "editorType": ["figma"],
+  "capabilities": ["textreview"]
+}

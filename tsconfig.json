@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["es2020", "dom"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "outDir": "dist",
+    "noImplicitOverride": true,
+    "verbatimModuleSyntax": true,
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
+  },
+  "include": ["./src/**/*", "./tests/**/*"]
+}
