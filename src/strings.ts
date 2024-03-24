@@ -35,6 +35,8 @@ fetch("https://raw.githubusercontent.com/jisungbin/strings-rule/main/strings.jso
             endInclusive = endIndex - 1
           }
           wrongDescription = rule['description']
+
+          return
         }
       })
 
