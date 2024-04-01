@@ -1,3 +1,5 @@
+# DEPRECATED: See [strings-desktop](https://github.com/jisungbin/strings-desktop/)
+
 ## strings
 
 Manage all your strings in Figma without any stress ✨
